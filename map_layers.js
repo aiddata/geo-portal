@@ -821,6 +821,7 @@ $(function() {
 
  function updateJenksBins(column_name, how_many_bins, table_name, sublayer) {
     map.spin(true)
+
     sql.execute('select CDB_JenksBins(array_agg(' + column_name + '::numeric), ' + how_many_bins + ') from ' + table_name + ' where ' + column_name + ' is not null')
             .done(function (data) {
                 // console.log(data.rows[0].cdb_jenksbins);
@@ -909,9 +910,9 @@ $(function() {
         sub_filter_list.push(filter_list[i].substr(filter_list[i].indexOf("_||_")+4))
       }
     }
-
+    var sql_string = "";
     if (sub_filter_list.length == 0) {
-      sql = "SELECT * from " + tn;
+      sql_string = "SELECT * from " + tn;
       
     } else {
 
@@ -920,10 +921,10 @@ $(function() {
         filter += sub_filter_list[i];
       }
 
-      sql = "SELECT * from " + tn + " where " + filter;
+      sql_string = "SELECT * from " + tn + " where " + filter;
     }
-    console.log(sql)
-    sublayer.setSQL(sql);
+    console.log(sql_string)
+    sublayer.setSQL(sql_string);
 
   };
 
@@ -1236,6 +1237,31 @@ $(function() {
                   $(this).click();
                 }
               });
+            }
+
+
+            if ( active_layers[$layer.data("key")] && url_query.fields && url_query.fields.length > 0 ) {
+
+              url_query.fields = [].concat(url_query.fields)
+              var layer_name =  $layer.parent().find('.layer_toggle').data('title');
+
+              for (var i=0, ix=url_query.fields.length; i<ix; i++) {
+                console.log(url_query.fields[i])
+                var tmp_name = url_query.fields[i].substr(0, url_query.fields[i].indexOf("_||_"));
+                var tmp_val = url_query.fields[i].substr(url_query.fields[i].indexOf("_||_") + 4);
+                console.log(tmp_name)
+                console.log(tmp_val)
+                if (layer_name == tmp_name) {
+                  $layer.parent().find('.field_select').val(tmp_val);
+                  $layer.parent().find('.field_select').change();
+                }
+              }
+
+              // $layer.parent().find('.filter_toggle').each(function () {
+              //   if ( url_query.filters.indexOf( layer_name+"_||_"+$(this).data('sql') ) > -1 ) {
+              //     $(this).click();
+              //   }
+              // });
             }
           });
 
