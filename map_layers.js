@@ -1,15 +1,5 @@
 $(function() {
 
-  // custom setup
-  // move all this to a json file 
-  // add title, icon, page header info (background image, link names/hrefs, etc.), report text, etc.
-
-  // carto user account id
-  var CARTO_USER = 'aiddata';
-  // map center [lat, lng]
-  var mc = [-6.65, -57.77];
-  // map zoom level
-  var mz = 5;
 
   // --------------------------------------------------  
   // browser check
@@ -33,6 +23,63 @@ $(function() {
 
   var temp_key, temp_title;
 
+  var CARTO_USER, mc, mz;
+
+  readJSON("toolbox.json", function (request, status, error){
+    // var json = request
+    if (error) {
+      console.log(status);
+      console.log(error);
+      $('#toolbox .body').append("Error Reading Data");
+      return 1;
+    }
+
+    // custom setup
+    // move all this to a json file 
+    // add title, icon, page header info (background image, link names/hrefs, etc.), report text, etc.
+
+    $('#page-title').html(request.config.title);
+
+    if (request.config.pagename) {
+      document.title = request.config.pagename;
+    } else { 
+      document.title = request.config.title;
+    }
+
+    body_css = {};
+
+    if (request.config.background_image) {
+      body_css["background-image"] = "url('"+request.config.background_image+"')";
+    }
+
+    body_css["background-color"] = "rgb("+
+          (request.config.background_color_red ? request.config.background_color_red : 100) +
+          ","+ (request.config.background_color_blue ? request.config.background_color_blue : 100) +
+          ","+ (request.config.background_color_green ? request.config.background_color_green : 100) +
+          ")";
+    
+
+    $(document.body).css(body_css);
+    
+    if (request.config.logo && request.config.logo_link) {
+      $('#identity').attr('href', request.config.logo_link);
+      $('#identity img').attr('src', request.config.logo);
+    }
+
+    // carto user account id
+    CARTO_USER = request.config.user;
+    sql = new cartodb.SQL({
+      user: CARTO_USER
+    });
+    // map center [lat, lng]
+    mc = [request.config.start_lat, request.config.start_lon];
+    // map zoom level
+    mz = request.config.start_zoom;
+
+
+
+  })
+
   active_layers = {};
   layer_list = [];
   filter_list = [];
@@ -40,9 +87,7 @@ $(function() {
   hash_change = 1;
   layer_colors = {};
   map = void 0;
-  sql = new cartodb.SQL({
-    user: CARTO_USER
-  });
+ 
   validate = {};
   zoom_limit = {};
 

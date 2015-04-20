@@ -1,7 +1,8 @@
 body {
   height: 100%;
   width: 100%;
-  background-image: url('http://www.ccbbirds.org/wp-content/uploads/2013/01/bird-migration-background.jpg');
+  /*background-color: rgb(100,100,100);*/
+  /*background-image: url('http://www.ccbbirds.org/wp-content/uploads/2013/01/bird-migration-background.jpg');*/
   background-position: center top;
   background-repeat: no-repeat;
   margin: 0px;
@@ -75,7 +76,7 @@ img {
   font-weight: normal;
   text-transform: uppercase;
   position: absolute;
-  right: 375px;
+  left: 305px;
   top: 60px;
 }
   .hf {

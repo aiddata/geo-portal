@@ -1,4 +1,17 @@
 {
+    "config": {
+        "user": "aiddata",
+        "title": "Carto Template",
+        "start_lat": -6.65,
+        "start_zoom": 5,
+        "start_lon": -57.77,
+        "background_image": "http://www.ccbbirds.org/wp-content/uploads/2013/01/bird-migration-background.jpg",
+        "background_color_red": 75,
+        "background_color_blue": 75,
+        "background_color_green": 75,
+        "logo": "http://www.ccbbirds.org/wp-content/uploads/2012/09/ccb-logo-vertical-shadow.png",
+        "logo_link": "http://www.ccbbirds.org"
+    },
     "categories": [
         {
             "title": "NDVI",

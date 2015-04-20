@@ -4,6 +4,71 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "config": {
+      "id": "config",
+      "type": "object",
+      "displayProperty": "title",
+      "additionalProperties": false,
+      "required": ["user","title"],
+      "properties": {
+        "user": {
+          "id": "user",
+          "type": "string"
+        },
+        "title": {
+          "id": "title",
+          "type": "string"
+        },
+        "pagename": {
+          "id": "pagename",
+          "type": "string"
+        },
+        "start_lat": {
+          "id": "start_lat",
+          "type": "number"
+        },
+        "start_lon": {
+          "id": "start_lon",
+          "type": "number"
+        },
+        "start_zoom": {
+          "id": "start_zoom",
+          "type": "integer",
+          "minimum": "3",
+          "maximum": "18"
+        },
+        "background_color_red": {
+          "id": "background_color_red",
+          "type": "integer",
+          "minimum": "0",
+          "maximum": "255"
+        },
+        "background_color_blue": {
+          "id": "background_color_blue",
+          "type": "integer",
+          "minimum": "0",
+          "maximum": "255"
+        },
+        "background_color_green": {
+          "id": "background_color_green",
+          "type": "integer",
+          "minimum": "0",
+          "maximum": "255"
+        },
+        "background_image": {
+          "id": "background_image",
+          "type": "string"
+        },
+        "logo": {
+          "id": "logo",
+          "type": "string"
+        },
+        "logo_link": {
+          "id": "logo_link",
+          "type": "string"
+        }
+      }
+    },
     "categories": {
       "id": "categories",
       "type": "array",
