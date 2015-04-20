@@ -1,0 +1,1 @@
+Template for displaying CartoDB visualizations on a web page.
