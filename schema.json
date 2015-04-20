@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "categories": {
+      "id": "categories",
+      "type": "array",
+      "items": {
+        "id": "4",
+        "type": "object",
+        "displayProperty": "title",
+        "additionalProperties": false,
+        "required": ["title","layers"],
+        "properties": {
+          "title": {
+            "id": "title",
+            "type": "string"
+          },
+          "layers": {
+            "id": "layers",
+            "type": "array",
+            "items": {
+              "id": "0",
+              "type": "object",
+              "displayProperty": "title",
+              "additionalProperties": false,
+              "required":["title", "group", "type", "key"],
+              "properties": {
+                "title": {
+                  "id": "title",
+                  "type": "string"
+                },
+                "group": {
+                  "id": "group",
+                  "type": "string"                  
+                },
+                "type": {
+                  "id": "type",
+                  "type": "string"
+                },
+                "centerlon": {
+                  "id": "centerlon",
+                  "type": "number",
+                  "minimum": "-180",
+                  "maximum": "180"
+                },
+                "centerlat": {
+                  "id": "centerlat",
+                  "type": "number",
+                  "minimum": "-90",
+                  "maximum": "90"
+                },
+                "zoom": {
+                  "id": "zoom",
+                  "type": "integer",
+                  "minimum": "3",
+                  "maximum": "18"
+                },
+                "maxzoom": {
+                  "id": "maxzoom",
+                  "type": "integer",
+                  "minimum": "3",
+                  "maximum": "18"
+                },
+                "hashtag": {
+                  "id": "hashtag",
+                  "type": "string"
+                },
+                "key": {
+                  "id": "key",
+                  "type": "string"
+                },
+                "key_alt": {
+                  "id": "key_alt",
+                  "type": "string"
+                },
+                "description": {
+                  "id": "description",
+                  "type": "string"
+                },
+                "link": {
+                  "id": "link",
+                  "type": "string"
+                },
+                "fields": {
+                  "id": "fields",
+                  "type": "array",
+                  "items": {
+                      "type": "string"
+                  }
+                },               
+                "filters": {
+                  "id": "filters",
+                  "type": "array",
+                  "displayProperty": "title",
+                  "items": {
+              		  "id": "0",
+  		              "type": "object",
+  		              "displayProperty": "title",
+                    "additionalProperties": false,
+                    "required": ["title", "sql"],
+  		              "properties": {
+  		                "title": {
+  		                  "id": "title",
+  		                  "type": "string"
+  		                },
+  		                "sql": {
+  		                  "id": "sql",
+  		                  "type": "string"
+  		                }
+  		              }
+  		            }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

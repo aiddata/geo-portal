@@ -1,0 +1,63 @@
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+body {
+  background: none;
+  background-color: white;
+
+}
+
+img {
+  border: none;
+}
+
+#web-header {
+  display: none;
+}
+
+#toolbox {
+  display: none;
+}
+
+#map {
+  /*display: block;*/
+  margin-top: 1in;
+  z-index: -1;
+  height: 6.5in;
+  width: 100%;
+}
+
+.cartodb-legend-stack {
+  position: fixed;
+  bottom: -100%;
+  right: -100%;
+}
+
+#search-link,
+#search-box,
+.cartodb-tooltip,
+.cartodb-infowindow,
+.cartodb-logo,
+.leaflet-control-container,
+.leaflet-left,
+div.cartodb-popup-tip-container {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#print-header {
+  display: block;
+  width: 400px;
+  height: 400px;
+  text-align: left;
+  padding: 25px;
+  position: absolute;
+  left: 0px;
+  font-family: Tahoma, Helvetica, Arial, sans-serif;
+  font-size: 8pt;
+  color: black;
+  background-color: rgb(200,200,200);
+}
