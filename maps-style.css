@@ -99,16 +99,13 @@
     left: -5px;
   }
 
-  .filter_toggle .active_layer_sign{
+  .filter_toggle .active_filter_sign{
     /*margin-left: -15px;*/
     background: black;
     border: 1px solid black;
   }
 
-/*  .active_layer_sign:before {
-    content: "-";
-  }*/
-  .active_layer_sign {
+  .active_layer_sign, .active_filter_sign {
     background: black;
     border: 1px solid black;
   }

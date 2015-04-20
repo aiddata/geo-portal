@@ -190,7 +190,7 @@
                 },
                 {
                     "title": "Colonial Waterbirds 2013",
-                    "group": "Bald Eagle Roosts",
+                    "group": "a",
                     "type": "sublayer",
                     "hashtag": "waterbirds2013",
                     "key": "fa4f7878-7f19-11e4-a731-0e4fddd5de28",
@@ -294,8 +294,8 @@
                 },
                 {
                     "title": "Chesapeake Bay Herons 2013",
-                    "group": "Chesapeake Bay Herons 2013",
-                    "type": "layer",
+                    "group": "a",
+                    "type": "sublayer",
                     "hashtag": "herons2013",
                     "key": "bc962aea-7f19-11e4-a731-0e4fddd5de28",
                     "key_alt": "722b419a-466a-11e3-ab62-eb37f76922d1",
@@ -307,8 +307,8 @@
                 },
                 {
                     "title": "Colonial Waterbirds 2008",
-                    "group": "Colonial Waterbirds 2008",
-                    "type": "layer",
+                    "group": "a",
+                    "type": "sublayer",
                     "hashtag": "waterbirds2008",
                     "key": "0638a146-7f1a-11e4-9584-0e9d821ea90d",
                     "key_alt": "bb270912-7e08-11e3-9ddf-7789a429ada9",

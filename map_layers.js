@@ -76,8 +76,6 @@ $(function() {
     // map zoom level
     mz = request.config.start_zoom;
 
-
-
   })
 
   active_layers = {};
@@ -187,6 +185,21 @@ $(function() {
       url_search.legend = $('.legend_tab_active').attr('id')
     }
 
+    $(".active_layer").each(function() {
+      var title = $(this).data('title')
+      var sel = $(this).parent().find('.field_select')
+      if ( sel.length == 1) {
+
+        // add fields array to url_search if it does not exist
+        if (_.keys(url_search).indexOf("fields") == -1) {
+          url_search.fields = [];
+        }
+
+        url_search.fields.push(title +"_||_"+ sel.val());
+        // console.log(title+" : "+sel.val())
+
+      }
+    });
 
     var keys = _.keys(baseMaps);
     for ( var i=0, ix=keys.length; i<ix; i++ ) {
@@ -198,6 +211,8 @@ $(function() {
     var url_new = URI(document.URL).addSearch(url_search)
     hash_change = 0;
     window.location.hash = url_new.query()
+
+    console.log(url_new)
     
   })
 
@@ -699,14 +714,14 @@ $(function() {
 
   // sub layer filter click
   $(".filter_toggle").click(function () {
-
-    $(this).find(".filter_sign").toggleClass("active_layer_sign");
-    if ( $(this).find(".filter_sign").hasClass("active_layer_sign") ) {
+    var layer_name = $(this).parent().find('.layer_toggle').data('title');
+    $(this).find(".filter_sign").toggleClass("active_filter_sign");
+    if ( $(this).find(".filter_sign").hasClass("active_filter_sign") ) {
       // add to filter list
-      filter_list.push($(this).data('sql'));
+      filter_list.push(layer_name+"_||_"+$(this).data('sql'));
     } else {
       // remove from filter list
-      var filter_index = filter_list.indexOf( $(this).data('sql') );
+      var filter_index = filter_list.indexOf(layer_name+"_||_"+$(this).data('sql'));
       if (filter_index > -1) {
         filter_list.splice(filter_index, 1);
       }
@@ -805,7 +820,7 @@ $(function() {
   };
 
  function updateJenksBins(column_name, how_many_bins, table_name, sublayer) {
-
+    map.spin(true)
     sql.execute('select CDB_JenksBins(array_agg(' + column_name + '::numeric), ' + how_many_bins + ') from ' + table_name + ' where ' + column_name + ' is not null')
             .done(function (data) {
                 // console.log(data.rows[0].cdb_jenksbins);
@@ -838,11 +853,14 @@ $(function() {
 
                 // add year to map or something
                 //
+                map.spin(false);
+
 
             })
             .error(function (errors) {
                 // errors contains a list of errors
                 console.log("error:" + errors);
+                map.spin(false);
             })
 
   }
@@ -884,15 +902,27 @@ $(function() {
 
     filter = ""
     
-    if (filter_list.length == 0) {
-      sql = "SELECT * from " + tn;
-    } else {
-      for (var i=0, ix=filter_list.length; i<ix; i++) {
-        filter += ( i == 0 ? "" : " OR ");
-        filter += filter_list[i];
+    var layer_name = t.data('title');
+    var sub_filter_list = [];
+    for (var i=0, ix=filter_list.length; i<ix; i++) {
+      if (filter_list[i].substr(0, filter_list[i].indexOf("_||_")) == layer_name) {
+        sub_filter_list.push(filter_list[i].substr(filter_list[i].indexOf("_||_")+4))
       }
+    }
+
+    if (sub_filter_list.length == 0) {
+      sql = "SELECT * from " + tn;
+      
+    } else {
+
+      for (var i=0, ix=sub_filter_list.length; i<ix; i++) {
+        filter += ( i == 0 ? "" : " OR ");
+        filter += sub_filter_list[i];
+      }
+
       sql = "SELECT * from " + tn + " where " + filter;
     }
+    console.log(sql)
     sublayer.setSQL(sql);
 
   };
@@ -925,8 +955,6 @@ $(function() {
 
     group.old = group.new;
     group.new = t.data('group');
-    // clear filter list on layer change
-    filter_list = [];
 
     // force when layer is from hashtag link data  
     force = ( force == null ? false : force);
@@ -992,10 +1020,12 @@ $(function() {
     }
 
 
-    // manage previously active layer when switching layer groups
-    $(".filter_sign").removeClass("active_layer_sign");
-
     if ( !sublayer || group.new != group.old) {
+      // clear filter list on group change
+      filter_list = [];
+      // manage previously active layer when switching layer groups
+      $(".filter_sign").removeClass("active_filter_sign");
+
       $('#legend_label').empty();
       $('.legend_tab').each( function () {
         $(this).remove();
@@ -1088,6 +1118,10 @@ $(function() {
 
         map.spin(false);
 
+        // if layer has fields, set cartocss using current field
+        t.parent().find(".field_select").change();
+
+
         // callback is for managing filters from hashtag links only 
         if (callback) {
           callback();
@@ -1103,9 +1137,6 @@ $(function() {
       // t.parent().find('.layer_content').slideDown();
       layer_slider(t.parent(), "down");
 
-
-      // if layer has fields, set cartocss using current field
-      // 
 
       // _gaq.push(['_trackEvent', 'Layers', 'Show', t.data("key")]);
 
@@ -1198,8 +1229,10 @@ $(function() {
             
             if ( active_layers[$layer.data("key")] && url_query.filters && url_query.filters.length > 0 ) {
 
+              var layer_name =  $layer.parent().find('.layer_toggle').data('title');
+
               $layer.parent().find('.filter_toggle').each(function () {
-                if ( url_query.filters.indexOf( $(this).data('sql') ) > -1 ) {
+                if ( url_query.filters.indexOf( layer_name+"_||_"+$(this).data('sql') ) > -1 ) {
                   $(this).click();
                 }
               });
@@ -1209,7 +1242,7 @@ $(function() {
           if (url_query.legend) {
             setTimeout(function () {
               $('.legend_tab').each(function () {
-                if ($(this).attr('id') == url_query.legend) {
+                if ($(this).attr('id') == url_query.legend && $(this).hasClass('legend_tab_active') == false) {
                   $(this).click()
                 }
               })
