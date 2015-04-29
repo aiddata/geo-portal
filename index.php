@@ -15,6 +15,9 @@
     <!-- <link href="libs/leaflet.measure/leaflet.measure.css" rel="stylesheet" /> -->
     <link href="libs/leaflet-measure-master/dist/leaflet-measure.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+
     <!-- <link href="index.css?nocache"      media="screen, projection, print" rel="stylesheet" type="text/css" /> -->
     <link href="maps-style.css?nocache" media="screen, projection" rel="stylesheet" type="text/css" />
     <!-- <link href="maps-print.css?nocache" media="print"              rel="stylesheet" type="text/css" /> -->
@@ -65,6 +68,11 @@
     //     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     //   })();
     </script>
+
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 
     <!-- // <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
