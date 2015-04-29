@@ -19,6 +19,7 @@
 
   #navbar{
     /*border-bottom: 2px solid black;*/
+    white-space: nowrap;
   }
 
   #navbar_aiddata_logo{
@@ -53,7 +54,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 
-        <li class="active"><a href=".">Nepal Info Portal</a></li>
+        <li class="active"><a id="title-link" href=".">Nepal Info Portal</a></li>
 
 
         <li class="dropdown">

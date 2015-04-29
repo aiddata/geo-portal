@@ -12,8 +12,7 @@
   body {
     height: 100%;
     width: 100%;
-    /*background-color: rgb(100,100,100);*/
-    /*background-image: url('http://www.ccbbirds.org/wp-content/uploads/2013/01/bird-migration-background.jpg');*/
+    background-image: url('http://www.ccbbirds.org/wp-content/uploads/2013/01/bird-migration-background.jpg');
     background-position: center top;
     background-repeat: no-repeat;
     margin: 0px;
@@ -87,6 +86,10 @@
     left: 305px;
     top: 60px;
   }
+    #title-link, #title-link:hover, #title-link:active {
+      text-decoration: none;
+      color:white;
+    }
     .hf {
       display: block;
       float: left;
@@ -116,7 +119,7 @@
 
 <div id="web-header">
   <a href="" id="identity">
-    <img alt="Home" src="" />
+    <img alt="Home" src="http://www.ccbbirds.org/wp-content/uploads/2012/09/ccb-logo-vertical-shadow.png" />
   </a>
   
   <ul id="pseudo-nav">
@@ -143,6 +146,6 @@
     </a>
   </div>
 
-  <div id="page-title"></div>
+  <div id="page-title"><a id="title-link" href="."></a></div>
 
 </div>

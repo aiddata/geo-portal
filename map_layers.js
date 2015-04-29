@@ -38,7 +38,7 @@ $(function() {
     // move all this to a json file 
     // add title, icon, page header info (background image, link names/hrefs, etc.), report text, etc.
 
-    $('#page-title').html(request.config.title);
+    $('#title-link').html(request.config.title);
 
     if (request.config.pagename) {
       document.title = request.config.pagename;
@@ -46,25 +46,25 @@ $(function() {
       document.title = request.config.title;
     }
 
-    body_css = {};
+    // body_css = {};
 
-    if (request.config.background_image) {
-      body_css["background-image"] = "url('"+request.config.background_image+"')";
-    }
+    // if (request.config.background_image) {
+    //   body_css["background-image"] = "url('"+request.config.background_image+"')";
+    // }
 
-    body_css["background-color"] = "rgb("+
-          (request.config.background_color_red ? request.config.background_color_red : 100) +
-          ","+ (request.config.background_color_blue ? request.config.background_color_blue : 100) +
-          ","+ (request.config.background_color_green ? request.config.background_color_green : 100) +
-          ")";
+    // body_css["background-color"] = "rgb("+
+    //       (request.config.background_color_red ? request.config.background_color_red : 100) +
+    //       ","+ (request.config.background_color_blue ? request.config.background_color_blue : 100) +
+    //       ","+ (request.config.background_color_green ? request.config.background_color_green : 100) +
+    //       ")";
     
 
-    $(document.body).css(body_css);
+    // $(document.body).css(body_css);
     
-    if (request.config.logo && request.config.logo_link) {
-      $('#identity').attr('href', request.config.logo_link);
-      $('#identity img').attr('src', request.config.logo);
-    }
+    // if (request.config.logo && request.config.logo_link) {
+    //   $('#identity').attr('href', request.config.logo_link);
+    //   $('#identity img').attr('src', request.config.logo);
+    // }
 
     // carto user account id
     CARTO_USER = request.config.user;
