@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="icon" type="image/png" href="http://www.ccbbirds.org/wp-content/uploads/2012/10/favicon.png">
+    <link rel="icon" type="image/png" href="">
 
     <link href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" rel="stylesheet" />
     <!--[if lte IE 8]><link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" /><![endif]-->
@@ -27,7 +27,6 @@
   <body>
 
     <?php include("nav1.php"); ?>  
-
 
     <div id="toolbox">
       <span id="toolbox_toggle" class="fa fa-chevron-left" title="toggle toolbox display"></span>      
@@ -72,7 +71,6 @@
 
     <script src="libs/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
 
     <!-- // <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

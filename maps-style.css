@@ -16,10 +16,10 @@
   width: 230px;
   bottom: 0px;
   padding: 10px;
-  background-color: #eee;
+  background-color: rgb(240,240,240);
   opacity: 0.95;
   border-top: 5px solid rgb(170,170,170);
-  border-right: 2.5px solid rgba(170,170,170,1);
+  border-right: 5px solid rgba(170,170,170,1);
   overflow: hidden;
 }
   #toolbox_toggle {
@@ -161,7 +161,7 @@
 
 #map {
   position: absolute;
-  border-top: 5px solid #aaa;
+  border-top: 5px solid rgb(170,170,170);
   top: 0px;
   left: 230px;
   bottom: 0px;

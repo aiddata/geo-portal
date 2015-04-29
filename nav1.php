@@ -11,7 +11,6 @@
 
   #navbar{
     /*border-bottom: 2px solid black;*/
-    white-space: nowrap;
   }
 
   #navbar_aiddata_logo{
