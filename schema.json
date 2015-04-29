@@ -145,6 +145,10 @@
                   "id": "description",
                   "type": "string"
                 },
+                "sql": {
+                  "id": "sql",
+                  "type": "string"
+                },
                 "link": {
                   "id": "link",
                   "type": "string"
@@ -161,22 +165,22 @@
                   "type": "array",
                   "displayProperty": "title",
                   "items": {
-              		  "id": "0",
-  		              "type": "object",
-  		              "displayProperty": "title",
+                    "id": "0",
+                    "type": "object",
+                    "displayProperty": "title",
                     "additionalProperties": false,
                     "required": ["title", "sql"],
-  		              "properties": {
-  		                "title": {
-  		                  "id": "title",
-  		                  "type": "string"
-  		                },
-  		                "sql": {
-  		                  "id": "sql",
-  		                  "type": "string"
-  		                }
-  		              }
-  		            }
+                    "properties": {
+                      "title": {
+                        "id": "title",
+                        "type": "string"
+                      },
+                      "sql": {
+                        "id": "sql",
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }

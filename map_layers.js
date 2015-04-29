@@ -211,8 +211,6 @@ $(function() {
     var url_new = URI(document.URL).addSearch(url_search)
     hash_change = 0;
     window.location.hash = url_new.query()
-
-    console.log(url_new)
     
   })
 
@@ -484,6 +482,7 @@ $(function() {
     validate.cat_html += 'data-group="'+layer.group+'"';
     validate.cat_html += 'data-type="'+layer.type+'"';
     validate.cat_html += 'data-title="'+layer.title+'"';
+    validate.cat_html += 'data-sql="'+layer.sql+'"';
 
     if (layer.centerlon && layer.centerlat && layer.zoom) {
       validate.cat_html += 'data-centerlon="'+layer.centerlon+'"';
@@ -792,12 +791,12 @@ $(function() {
       left: 0
     });
     $("#map").animate({
-      left: 250
+      left: 230
     }, function () {
       map.invalidateSize();
       map.panTo(pan, {animate:true, duration:1.0});
     });
-    tb.data("collapsed", false);
+    $("#toolbox").data("collapsed", false);
   };
 
   // minimize toolbox to left of screen
@@ -808,7 +807,7 @@ $(function() {
     $('#toolbox_toggle').addClass('fa-chevron-right')
 
     $("#toolbox").animate({
-      left: -220
+      left: -200
     });
     $("#map").animate({
       left: 30
@@ -816,7 +815,7 @@ $(function() {
       map.invalidateSize();
       map.panTo(pan, {animate:true, duration:1.0});
     });
-    tb.data("collapsed", true);
+    $("#toolbox").data("collapsed", true);
   };
 
  function updateJenksBins(column_name, how_many_bins, table_name, sublayer) {
@@ -913,16 +912,28 @@ $(function() {
     var sql_string = "";
     if (sub_filter_list.length == 0) {
       sql_string = "SELECT * from " + tn;
-      
+
+      if (t.data('sql') && t.data('sql') != "") {
+        sql_string += " WHERE " + t.data('sql')
+      }
+
     } else {
+
+      sql_string = "SELECT * from " + tn + " WHERE "
+
+      if (t.data('sql') && t.data('sql') != "") {
+        sql_string += "(" + t.data('sql') + ") AND "
+      }
 
       for (var i=0, ix=sub_filter_list.length; i<ix; i++) {
         filter += ( i == 0 ? "" : " OR ");
         filter += sub_filter_list[i];
       }
 
-      sql_string = "SELECT * from " + tn + " where " + filter;
+      sql_string += "(" + filter + ")";
     }
+
+
     console.log(sql_string)
     sublayer.setSQL(sql_string);
 
@@ -1013,6 +1024,7 @@ $(function() {
       layer_list.splice( layer_list.indexOf(t.data('title')), 1 );
       t.removeClass("active_layer");
       t.parent().find(".layer_sign").removeClass("active_layer_sign");
+      t.parent().find(".filter_sign").removeClass("active_filter_sign");
 
       // t.parent().find('.layer_content').slideUp();
       layer_slider(t.parent(), "up");
@@ -1208,18 +1220,21 @@ $(function() {
 
     h = [].concat(h)
 
-
+    if (url_query.zoom && url_query.lat && url_query.lng) {
+      map.setView([url_query.lat, url_query.lng], url_query.zoom);
+    }
+    
     $(".layer_toggle").each(function(index) {
       
       if ( h.indexOf( $(this).data('hashtag') ) > -1 || h.indexOf( $(this).data('title') ) > -1 ) {
       
-        // autozoom to extents for hashtag layers (when extent data is available)
-        if ( h.indexOf( $(this).data('hashtag') ) > -1 && $(this).data('centerlon') && $(this).data('centerlat') && $(this).data('zoom') ) {
+        // autozoom to extents for hashtag layers (when extent data is available - single layer links only. ie: old hashtag link)
+        if ( h.length == 1 && h.indexOf( $(this).data('hashtag') ) > -1 && $(this).data('centerlon') && $(this).data('centerlat') && $(this).data('zoom') ) {
           map.setView([$(this).data('centerlat'), $(this).data('centerlon')], $(this).data('zoom'));
 
-        } else if (url_query.zoom && url_query.lat && url_query.lng) {
-          map.setView([url_query.lat, url_query.lng], url_query.zoom);
-        }
+        } // else if (url_query.zoom && url_query.lat && url_query.lng) {
+        //   map.setView([url_query.lat, url_query.lng], url_query.zoom);
+        // }
 
 
         // manage layers, filters, sublayers
@@ -1327,25 +1342,5 @@ $(function() {
   };
 
   // --------------------------------------------------
-  // printing
-  
-  // function afterPrint() {
-  //   _gaq.push(['_trackEvent', 'Layers', 'Print']);
-  // };
-
-  // function beforePrint() {};
-
-  // if (window.matchMedia) {
-  //   mediaQueryList = window.matchMedia('print');
-  //   mediaQueryList.addListener(function(mql) {
-  //     if (mql.matches) {
-  //       afterPrint();
-  //     } else {
-  //       beforePrint();
-  //     }
-  //   });
-  // }
-
-  // window.onafterprint = afterPrint;
 
 })

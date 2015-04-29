@@ -37,6 +37,9 @@ img {
   left: 0px;
   top: 0px;
 }
+  #identity img {
+    max-height: 130px;
+  }
 #pseudo-nav {
   position: absolute;
   right: 150px;
