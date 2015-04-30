@@ -215,9 +215,9 @@ $(function() {
   })
 
   $('#mb_print').on('click', function () {
-    console.log("print")
+    // console.log("print")
 
-    var build_report = confirm("Generating your report may take a minute. \n\nPlease be sure all visible map tiles have loaded before printing. \n\nContinue?");
+    var build_report = confirm("Generating your report may take a minute. \n\nPlease be sure all visible map tiles have loaded before printing. \n\nYou may need to disable popups for this site to access the report. \n\nContinue?");
 
     if (!build_report) {
       return;
@@ -482,7 +482,7 @@ $(function() {
     validate.cat_html += 'data-group="'+layer.group+'"';
     validate.cat_html += 'data-type="'+layer.type+'"';
     validate.cat_html += 'data-title="'+layer.title+'"';
-    validate.cat_html += 'data-sql="'+layer.sql+'"';
+    validate.cat_html += 'data-sql="' + (layer.sql == undefined ? "" : layer.sql) + '"';
 
     if (layer.centerlon && layer.centerlat && layer.zoom) {
       validate.cat_html += 'data-centerlon="'+layer.centerlon+'"';
@@ -909,11 +909,12 @@ $(function() {
         sub_filter_list.push(filter_list[i].substr(filter_list[i].indexOf("_||_")+4))
       }
     }
+
     var sql_string = "";
     if (sub_filter_list.length == 0) {
       sql_string = "SELECT * from " + tn;
 
-      if (t.data('sql') && t.data('sql') != "") {
+      if (t.data('sql') && t.data('sql') != "" ) {
         sql_string += " WHERE " + t.data('sql')
       }
 
@@ -921,7 +922,7 @@ $(function() {
 
       sql_string = "SELECT * from " + tn + " WHERE "
 
-      if (t.data('sql') && t.data('sql') != "") {
+      if (t.data('sql') && t.data('sql') != "" ) {
         sql_string += "(" + t.data('sql') + ") AND "
       }
 
