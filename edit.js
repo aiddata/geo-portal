@@ -26,7 +26,7 @@
 
 			if (data[1] == "success"  && schema[1] == "success") {
 				
-				$('#title-link').html(json.data.config.title);
+				$('#title-link').html( ( json.data.config ? json.data.config.title : "Mapping Portal") );
 				
 				var options = { schema:json.schema, data:json.data };
 				var el = $("#data");

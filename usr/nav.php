@@ -64,7 +64,7 @@
 
   #page-help {
     position: absolute;
-    right: 75px;
+    right: 50px;
     top: 60px; 
   }
 

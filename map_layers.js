@@ -38,12 +38,14 @@ $(function() {
     // move all this to a json file 
     // add title, icon, page header info (background image, link names/hrefs, etc.), report text, etc.
 
-    $('#title-link').html(request.config.title);
+    $('#title-link').html( ( request.config ? request.config.title : "Mapping Portal") );
 
     if (request.config.pagename) {
       document.title = request.config.pagename;
-    } else { 
+    } else if (request.config.title) { 
       document.title = request.config.title;
+    } else {
+      document.title = "Mapping Portal"
     }
 
     // body_css = {};
