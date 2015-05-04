@@ -21,7 +21,7 @@ switch ($_POST['call']) {
 	// update json based on changes made in json editor
 	case 'json':
 		$json = json_encode( json_decode($_POST["json"]), JSON_PRETTY_PRINT ); 
-		file_put_contents( "toolbox.json", $json );
+		file_put_contents( "usr/toolbox.json", $json );
 		echo json_encode("good");
 		break;
 

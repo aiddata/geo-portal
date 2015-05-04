@@ -26,7 +26,7 @@
 
   <body>
 
-    <?php include("nav1.php"); ?>  
+    <?php include("usr/nav1.php"); ?>  
 
     <div id="toolbox">
       <span id="toolbox_toggle" class="fa fa-chevron-left" title="toggle toolbox display"></span>      

@@ -20,7 +20,7 @@
 
     <div id="background-container"></div>
 
-    <?php include("nav1.php"); ?>  
+    <?php include("usr/nav1.php"); ?>  
 
     <div id="edit_page">
 

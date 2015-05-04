@@ -25,6 +25,47 @@
   #toolbox, #map, #edit_page {
     top: 50px;
   }
+
+
+  /* force collapsed navbar at desired width */
+  @media (max-width: 990px) {
+    .navbar-header {
+      float: none;
+    }
+    .navbar-left,.navbar-right {
+      float: none !important;
+    }
+    .navbar-toggle {
+      display: block;
+      /*float: right;*/
+    }
+    .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+      display: none!important;
+    }
+    .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+    }
+      .navbar-nav>li {
+          float: none;
+      }
+        .navbar-nav>li>a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+    .collapse.in{
+      display:block !important;
+    }
+  }
+
 </style>
 
 <!-- Add navbar_spacer div to html in file nav.php is being included with -->
