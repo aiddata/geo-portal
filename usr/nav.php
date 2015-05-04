@@ -1,143 +1,166 @@
 
 <style>
-
-  body {
-    height: 100%;
-    width: 100%;
-    background-image: url('http://www.ccbbirds.org/wp-content/uploads/2013/01/bird-migration-background.jpg');
-    background-position: center top;
-    background-repeat: no-repeat;
-    margin: 0px;
-    border: 0px;
-    font-family: MuseoSans_500, Tahoma, Helvetica, Arial, sans-serif;
-  }
-  img {
-    border: none;
-  }
-  @font-face{
-
-    font-weight:normal;
-    font-style:normal;
-  }
-  #web-header {
-    position: relative;
-    display: block;
-    width: 960px;
-    height: 130px;
-    margin-top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #identity {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-  }
-    #identity img {
-      max-height: 130px;
-    }
-  #pseudo-nav {
-    position: absolute;
-    right: 150px;
-    top: 20px;
-    }
-    #pseudo-nav li {
-      display: inline-block;
-      font-family: MuseoSans_500, Tahoma, Helvetica, Arial, sans-serif;
-      font-size: 15px;
-      font-weight: normal;
-    }
-    #pseudo-nav li a {
-      color: white;
-      text-decoration: none;
-      padding: 11px;
-      padding-top: 15px;
-      padding-bottom: 15px;
-      background: black;
-      border-right: 1px solid white;
-      margin: 0px;
-    }
-    #pseudo-nav .highlight {
-      border-right: none;
-      color: rgb(116, 201, 194);
-    }
-
-  #page-help {
-    position: absolute;
-    right: 50px;
-    top: 60px; 
+  body{
+    /*padding-top: 50px;*/
   }
 
-  #page-title {
-    color: white;
-    font-family: MuseoSans_500, Tahoma, Helvetica, Arial, sans-serif;
-    font-size: 32px;
-    font-weight: normal;
-    text-transform: uppercase;
-    position: absolute;
-    left: 305px;
-    top: 60px;
+  #navbar_spacer{
+    clear:both;
+    height: 75px;
   }
-    #title-link, #title-link:hover, #title-link:active {
-      text-decoration: none;
-      color:white;
-    }
-    .hf {
-      display: block;
-      float: left;
-      text-decoration: none;
-      margin-top: 4px;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 10px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      color: #000;
-      background: #FFFF00;
-      border-radius: 20px;
-      margin-right: 130px;
-    }
+
+  #navbar{
+    /*border-bottom: 2px solid black;*/
+  }
+
+  #navbar_aiddata_logo{
+    margin:0 10px;
+    padding:0;
+  }
+
+  #navbar_aiddata_logo img{
+    height: 50px;
+  }
 
   #toolbox, #map, #edit_page {
-    top: 130px;
+    top: 50px;
+  }
+
+
+  /* force collapsed navbar at desired width */
+  @media (max-width: 990px) {
+    .navbar-header {
+      float: none;
+    }
+    .navbar-left,.navbar-right {
+      float: none !important;
+    }
+    .navbar-toggle {
+      display: block;
+      /*float: right;*/
+    }
+    .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+      display: none!important;
+    }
+    .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+    }
+      .navbar-nav>li {
+          float: none;
+      }
+        .navbar-nav>li>a {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+    .collapse.in{
+      display:block !important;
+    }
   }
 
 </style>
 
-
 <!-- Add navbar_spacer div to html in file nav.php is being included with -->
 <!-- <div id="navbar_spacer"></div> -->
 
+<!-- Fixed navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="http://labs.aiddata.org/aiddata/imgs/ACDP logo transparent large.png"> </a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
 
-<div id="web-header">
-  <a href="" id="identity">
-    <img alt="Home" src="http://www.ccbbirds.org/wp-content/uploads/2012/09/ccb-logo-vertical-shadow.png" />
-  </a>
-  
-  <ul id="pseudo-nav">
-    <li>
-      <a href="http://www.ccbbirds.org/about-us">About Us</a>
-    </li>
-    <li>
-      <a href="http://www.ccbbirds.org/what-we-do">What We Do</a>
-    </li>
-    <li>
-      <a href="http://www.ccbbirds.org/resources">Resources</a>
-    </li>
-    <li>
-      <a href="http://www.ccbbirds.org/news-room">News Room</a>
-    </li>
-    <li>
-      <a class="highlight" href="http://www.ccbbirds.org/give-to-ccb">Give to CCB</a>
-    </li>
-  </ul>
+        <li class="active"><a id="title-link" href=".">Nepal Info Portal</a></li>
 
-  <div id="page-help">
-    <a class="hf" href="http://www.ccbbirds.org/resources/mapping-portal-information-and-faq/" target="_blank">
-      Help / FAQ 
-    </a>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help Map <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+              <!-- <li class="dropdown-header">Get Data</li> -->
+              <li><a href="http://www.tomnod.com/">Damage (Tomnod)</a></li>
+              <li><a href=" http://kathmandulivinglabs.org/blog/earthquake-relief-in-nepal-how-can-maps-help/">Infrastructure (OSM)</a></li>
+
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contribute <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+              <!-- <li class="dropdown-header">Internal</li> -->
+              <li><a href="http://www.savethechildren.org/site/apps/nlnet/content2.aspx?c=8rKLIXMGIpI4E&b=9241341&ct=14620557&notoc=1">Save the Children</a></li>
+              <li><a href="mailto:drunfola@aiddata.org">Send Us Data</a></li>
+
+              <!-- <li class="divider"></li> -->
+
+
+              <!-- <li class="dropdown-header">External</li> -->
+              <!-- <li><a href="/aiddata/CCB/test">Center for Conservation Biology</a></li> -->
+
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get Data <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+
+              <!-- <li class="dropdown-header">Media</li> -->
+              <li><a href="http://www.opencitiesproject.org/cities/kathmandu/">Open Cities Project</a></li>
+              <li><a href="http://aiddata.org/geocoded-datasets">AidData</a></li>
+              <li><a href="http://wiki.openstreetmap.org/wiki/Downloading_data">OSM</a></li>
+              <li><a href="https://docs.google.com/spreadsheets/d/1dajjXd1eVs8VMetD7qTLUjSSZ1-NvsEteSCVlKqIRm4/edit?usp=sharing">News Reports</a></li>
+          <!--     <li class="divider"></li>
+
+              <li class="dropdown-header">Research</li>
+              <li><a href="#">Evaluating the Impact of Open Aid Data</a></li>
+              <li class="divider"></li>
+
+              <li class="dropdown-header">Outreach</li>
+              <li><a href="#">New Data Collection Methods</a></li> -->
+
+          </ul>
+        </li>
+
+        <li class=""><a href="https://google.org/personfinder/global/home.html">Google Person Finder</a></li>
+
+   <!--      <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Alerts <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Current Alerts</a></li>
+              <li><a href="#">Current Warnings</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Previous Alerts</a></li>
+              <li><a href="#">Previous Warnings</a></li>
+              <li><a href="#">Overview of Previous Events</a></li>
+              <li class="divider"></li>
+              <li><a href="#">How Alerts are Generated</a></li>
+              <li><a href="#">Get Raw Data</a></li>
+          </ul>
+        </li> -->
+
+      </ul>
+    <!--   <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">About</a></li>
+        <li id="temp_reset"><a href="#">Contact</a></li>
+      </ul> -->
+    </div><!--/.nav-collapse -->
   </div>
+</div> <!-- /#navbar -->
 
-  <div id="page-title"><a id="title-link" href="."></a></div>
-
-</div>
