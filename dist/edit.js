@@ -19,7 +19,7 @@
 	$(function() {
 
 
-		$.when( $.getJSON("usr/toolbox.json"), $.getJSON("schema.json") ).done( function(data, schema){
+		$.when( $.getJSON("toolbox.json"), $.getJSON("schema.json") ).done( function(data, schema){
 			
 			json.data = data[0]
 			json.schema = schema[0]

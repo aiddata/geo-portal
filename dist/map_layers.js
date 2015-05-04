@@ -25,7 +25,7 @@ $(function() {
 
   var CARTO_USER, mc, mz;
 
-  readJSON("usr/toolbox.json", function (request, status, error){
+  readJSON("toolbox.json", function (request, status, error){
     // var json = request
     if (error) {
       console.log(status);
@@ -418,7 +418,7 @@ $(function() {
       }
     })
     
-    map.spin(false);
+    // map.spin(false);
 
   })
 
@@ -557,7 +557,7 @@ $(function() {
 
 
   // build toolbox html
-  readJSON("usr/toolbox.json", function (request, status, error){
+  readJSON("toolbox.json", function (request, status, error){
     // var json = request
     if (error) {
       console.log(status);
