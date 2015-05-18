@@ -7,7 +7,6 @@ switch ($_POST['call']) {
 	// check cartodb link before loading layer
 	case 'url':
 		$url = $_POST['url'];
-		$file = file_get_contents( $url , true );
 
 		/* gets the data from a URL */
 		// http://davidwalsh.name/curl-download
@@ -22,8 +21,10 @@ switch ($_POST['call']) {
 			return $data;
 		}
 
-		if ($file == FALSE || $file == NULL) {
-			$file = file_get_contents($url);
+		$file = file_get_contents( $url , true );
+
+		if ($file == NULL || $file == FALSE) {
+			$file = get_data($url);
 		}
 
 		$json = json_decode($file);
