@@ -18,13 +18,13 @@ cp "$dir"/build.sh "$out"/
 
 # usr
 mkdir -p "$out"/usr
-cp -r "$dir"/tmp "$out"/usr/tmp
+cp -r "$dir"/tmp "$out"/usr
 cp "$dir"/toolbox.json "$out"/usr
 cp "$dir"/nav.php "$out"/usr
 
 # build
 mkdir -p "$out"/dist
-cp -r "$dir"/libs "$out"/dist/libs
+cp -r "$dir"/libs "$out"/dist
 cp "$dir"/edit.php "$out"/dist
 cp "$dir"/edit.css "$out"/dist
 cp "$dir"/edit.js "$out"/dist

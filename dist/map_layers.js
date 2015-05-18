@@ -1094,7 +1094,8 @@ $(function() {
         if ( result != null ) {
           validate.url = 1;
         } else {
-          console.log("invalid url");    
+          console.log(result)
+          console.log("invalid url: " + layerUrl);    
         }
 
       },
