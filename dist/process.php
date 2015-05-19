@@ -2,24 +2,25 @@
 
 $root_dir = dirname(__FILE__);
 
+/* gets the data from a URL */
+// http://davidwalsh.name/curl-download
+function get_data($url) {
+	$ch = curl_init();
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	return $data;
+}
+		
+
 switch ($_POST['call']) {
 
 	// check cartodb link before loading layer
 	case 'url':
 		$url = $_POST['url'];
-
-		/* gets the data from a URL */
-		// http://davidwalsh.name/curl-download
-		function get_data($url) {
-			$ch = curl_init();
-			$timeout = 5;
-			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-			$data = curl_exec($ch);
-			curl_close($ch);
-			return $data;
-		}
 
 		$file = file_get_contents( $url , true );
 
@@ -39,11 +40,18 @@ switch ($_POST['call']) {
 		}
 		echo json_encode($out);
 		break;
+		
 	// update json based on changes made in json editor
 	case 'json':
-		$json = json_encode( json_decode($_POST["json"]), JSON_PRETTY_PRINT ); 
-		file_put_contents( $root_dir . "/toolbox.json", $json );
-		echo json_encode("good");
+		$json = $_POST["json"]; 
+
+		if (version_compare(phpversion(), '5.4.0', '>=')) {
+			$json = json_encode(json_decode($_POST["json"]), JSON_PRETTY_PRINT); 
+		}
+
+		$file = $root_dir."/toolbox.json";
+		file_put_contents($file, $json);
+		echo $json;
 		break;
 
 	case 'tiles':
@@ -79,25 +87,28 @@ switch ($_POST['call']) {
 		foreach ($tiles as $layer) {
 			foreach ($layer as $tile) {
 
-				list($tilewidth,$tileheight,$tileformat) = @getimagesize($tile->url);
+				$tile_url = get_data($tile->url);
+				// $tile_url = $tile->url;
 
-			    if (!$tileformat) continue;
+				// list($tilewidth,$tileheight,$tileformat) = @getimagesize($tile_url);
 
-			    // load the tempfile's image, and blit it onto the canvas
-			    switch ($tileformat) {
-			        case IMAGETYPE_GIF:
-			           $tileimage = imagecreatefromgif($tile->url);
-			           break;
-			        case IMAGETYPE_JPEG:
-			           $tileimage = imagecreatefromjpeg($tile->url);
-			           break;
-			        case IMAGETYPE_PNG:
-			           $tileimage = imagecreatefrompng($tile->url);
-			           break;
-			    }
+			 //    if (!$tileformat) continue;
 
+			 //    // load the tempfile's image, and blit it onto the canvas
+			 //    switch ($tileformat) {
+			 //        case IMAGETYPE_GIF:
+			 //           $tileimage = imagecreatefromgif($tile_url);
+			 //           break;
+			 //        case IMAGETYPE_JPEG:
+			 //           $tileimage = imagecreatefromjpeg($tile_url);
+			 //           break;
+			 //        case IMAGETYPE_PNG:
+			 //           $tileimage = imagecreatefrompng($tile_url);
+			 //           break;
+			 //    }
 
-			   	// $tileimage = imagecreatefrompng($tile->url);
+				$tileimage = imagecreatefromstring($tile_url);
+
 				imagecopy($image, $tileimage, $tile->x, $tile->y, 0, 0, 256, 256);
 
 			}
