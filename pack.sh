@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# bash /var/www/html/aiddata/cwt/pack.sh ~/git/cwt
+
 # used for breaking down development files into build assets
 
 # github repo
@@ -21,6 +23,7 @@ mkdir -p "$out"/usr
 cp -r "$dir"/tmp "$out"/usr
 cp "$dir"/toolbox.json "$out"/usr
 cp "$dir"/nav.php "$out"/usr
+cp "$dir"/report.php "$out"/usr
 
 # build
 mkdir -p "$out"/dist

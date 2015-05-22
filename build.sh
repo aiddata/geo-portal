@@ -22,6 +22,7 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # cp -r "$dir"/usr/tmp "$out"/
 # cp "$dir"/usr/toolbox.json "$out"/
 # cp "$dir"/usr/nav.php "$out"/
+# cp "$dir"/usr/report.php "$out"/
 
 # build
 mkdir -p "$out"/libs
