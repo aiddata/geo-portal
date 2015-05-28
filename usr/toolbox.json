@@ -17,50 +17,149 @@
             "title": "NDVI",
             "layers": [
                 {
-                    "title": "NDVI",
+                    "title": "Hybrid NDVI",
                     "group": "ndvi",
                     "type": "sublayer",
                     "hashtag": "ndvi",
                     "key": "0b42f8e0-e2bf-11e4-ba0a-0e0c41326911",
-                    "description": "GIMMS NDVI extracted to kfw communities.",
+                    "description": "GIMMS NDVI extracted to kfw communities using a hybrid of historic avhrr data and contemporary modis data.",
                     "zoom": 5,
                     "centerlat": -12.3,
                     "centerlon": -52.89,
                     "maxzoom": 18,
                     "fields": [
-                        "ndvi_1982",
-                        "ndvi_1983",
-                        "ndvi_1984",
-                        "ndvi_1985",
-                        "ndvi_1986",
-                        "ndvi_1987",
-                        "ndvi_1988",
-                        "ndvi_1989",
-                        "ndvi_1990",
-                        "ndvi_1991",
-                        "ndvi_1992",
-                        "ndvi_1993",
-                        "ndvi_1994",
-                        "ndvi_1995",
-                        "ndvi_1996",
-                        "ndvi_1997",
-                        "ndvi_1998",
-                        "ndvi_1999",
-                        "ndvi_2000",
-                        "ndvi_2001",
-                        "ndvi_2002",
-                        "ndvi_2003",
-                        "ndvi_2004",
-                        "ndvi_2005",
-                        "ndvi_2006",
-                        "ndvi_2007",
-                        "ndvi_2008",
-                        "ndvi_2009",
-                        "ndvi_2010",
-                        "ndvi_2011",
-                        "ndvi_2012",
-                        "ndvi_2013",
-                        "ndvi_2014"
+                        {
+                            "field": "ndvi_1982",
+                            "display": "1982"
+                        },
+                        {
+                            "field": "ndvi_1983",
+                            "display": "1983"
+                        },
+                        {
+                            "field": "ndvi_1984",
+                            "display": "1984"
+                        },
+                        {
+                            "field": "ndvi_1985",
+                            "display": "1985"
+                        },
+                        {
+                            "field": "ndvi_1986",
+                            "display": "1986"
+                        },
+                        {
+                            "field": "ndvi_1987",
+                            "display": "1987"
+                        },
+                        {
+                            "field": "ndvi_1988",
+                            "display": "1988"
+                        },
+                        {
+                            "field": "ndvi_1989",
+                            "display": "1989"
+                        },
+                        {
+                            "field": "ndvi_1990",
+                            "display": "1990"
+                        },
+                        {
+                            "field": "ndvi_1991",
+                            "display": "1991"
+                        },
+                        {
+                            "field": "ndvi_1992",
+                            "display": "1992"
+                        },
+                        {
+                            "field": "ndvi_1993",
+                            "display": "1993"
+                        },
+                        {
+                            "field": "ndvi_1994",
+                            "display": "1994"
+                        },
+                        {
+                            "field": "ndvi_1995",
+                            "display": "1995"
+                        },
+                        {
+                            "field": "ndvi_1996",
+                            "display": "1996"
+                        },
+                        {
+                            "field": "ndvi_1997",
+                            "display": "1997"
+                        },
+                        {
+                            "field": "ndvi_1998",
+                            "display": "1998"
+                        },
+                        {
+                            "field": "ndvi_1999",
+                            "display": "1999"
+                        },
+                        {
+                            "field": "ndvi_2000",
+                            "display": "2000"
+                        },
+                        {
+                            "field": "ndvi_2001",
+                            "display": "2001"
+                        },
+                        {
+                            "field": "ndvi_2002",
+                            "display": "2002"
+                        },
+                        {
+                            "field": "ndvi_2003",
+                            "display": "2003"
+                        },
+                        {
+                            "field": "ndvi_2004",
+                            "display": "2004"
+                        },
+                        {
+                            "field": "ndvi_2005",
+                            "display": "2005"
+                        },
+                        {
+                            "field": "ndvi_2006",
+                            "display": "2006"
+                        },
+                        {
+                            "field": "ndvi_2007",
+                            "display": "2007"
+                        },
+                        {
+                            "field": "ndvi_2008",
+                            "display": "2008"
+                        },
+                        {
+                            "field": "ndvi_2009",
+                            "display": "2009"
+                        },
+                        {
+                            "field": "ndvi_2010",
+                            "display": "2010"
+                        },
+                        {
+                            "field": "ndvi_2011",
+                            "display": "2011"
+                        },
+                        {
+                            "field": "ndvi_2012",
+                            "display": "2012"
+                        },
+                        {
+                            "field": "ndvi_2013",
+                            "display": "2013"
+                        },
+                        {
+                            "field": "ndvi_2014",
+                            "display": "2014"
+                        }
                     ]
                 }
             ]

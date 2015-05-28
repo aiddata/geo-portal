@@ -533,10 +533,11 @@ $(function() {
     validate.cat_html += '<select class="field_select">';
 
     for (var k=0, kx=fields.length; k<kx; k++) {
-      var field = fields[k];
+      var field = fields[k]["field"];
+      var display = ( fields[k]["display"] ? fields[k]["display"] : field );
 
       if ( field != "" ) {
-        validate.cat_html += '<option class="field_item" value="' + field + '">' + field +'</option>';
+        validate.cat_html += '<option class="field_item" value="' + field + '">' + display +'</option>';
       }
 
     }

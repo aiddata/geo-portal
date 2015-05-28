@@ -157,8 +157,23 @@
                   "id": "fields",
                   "type": "array",
                   "items": {
-                      "type": "string"
+                    "id": "00",
+                    "type": "object",
+                    "displayProperty": "field",
+                    "additionalProperties": false,
+                    "required": ["field"],
+                    "properties": {
+                      "field": {
+                        "id": "field",
+                        "type": "string"
+                      },
+                      "display": {
+                        "id": "display",
+                        "type": "string"
+                      }
+                    }
                   }
+
                 },               
                 "filters": {
                   "id": "filters",
