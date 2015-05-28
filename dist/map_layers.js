@@ -852,7 +852,8 @@ $(function() {
                 // sublayer.setInteractivity(‘cartodb_id, name, …’)
 
                 // update legend
-                //
+                $(".min").html( roundxy(jbins[0]) )
+                $(".max").html( roundxy(jbins[6]) )
 
                 // add year to map or something
                 //
@@ -1330,6 +1331,13 @@ $(function() {
 
   // --------------------------------------------------
   // general functions  
+
+
+  function roundxy(x,y) {
+    y = ( y == undefined ? 3 : y );
+    var pow = Math.pow(10,y);
+    return Math.floor(x*pow)/(pow);
+  }
 
   function readJSON(file, callback) {
     $.ajax({

@@ -86,7 +86,7 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 
-        <li class="active"><a id="title-link" href=".">Nepal Info Portal</a></li>
+        <li class="active"><a id="title-link" href=".">Map Portal</a></li>
 
 
         <li class="dropdown">

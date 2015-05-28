@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# bash ~/cwt/build.sh /var/www/html/aiddata/kfw
+
 # used for copying build assests from git pull to web server path
 # always call this script from within local git repo
 
