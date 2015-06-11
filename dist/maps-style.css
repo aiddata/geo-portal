@@ -215,6 +215,7 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 9999;
 }
   .map_button {
     cursor: pointer;
@@ -258,6 +259,7 @@
   position: fixed;
   bottom: 0px;
   right: 0;
+  z-index: 9999;
 }
   #legend_label {
     display: inline-block;

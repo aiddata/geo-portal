@@ -267,17 +267,18 @@ $(function() {
     // go through all layers, and collect a list of objects
     $('.leaflet-layer').each ( function () {
 
-      var tile_layer = false; 
+      // var tile_layer = false; 
       var tmp_tiles = [];
       var t0 = 1;
 
-      $(this).find('.leaflet-tile-container').each( function () {
+      // $(this).find('.leaflet-tile-container').each( function () {
         
-        if ( $(this).children().length > 0 && tile_layer == false ) {
+        // if ( $(this).children().length > 0 && tile_layer == false ) {
           
-          tile_layer = true;
+          // tile_layer = true;
 
-          $(this).find('img').each( function () {
+          $(this).find('.leaflet-tile-loaded').each( function () {
+          // $(this).find('img').each( function () {
 
             // var tileposraw = $(this)[0].style.transform.replace(/translate|\)|\(| |px/g,'').split(',');
             var tileposraw = [$(this).offset().left, $(this).offset().top];
@@ -310,7 +311,8 @@ $(function() {
 
           })
 
-          $(this).find('img').each( function () {
+          $(this).find('.leaflet-tile-loaded').each( function () {
+          // $(this).find('img').each( function () {
 
             // var tileposraw = $(this)[0].style.transform.replace(/translate|\)|\(| |px/g,'').split(',');
             var tileposraw = [$(this).offset().left, $(this).offset().top];
@@ -334,10 +336,10 @@ $(function() {
           tiles.push(tmp_tiles)
           // console.log(te)
 
-        }
-      })
+        // }
+      // })
     })
-    // console.log( tiles )
+    console.log( tiles )
 
     // hand off the list to our server-side script, which will do the heavy lifting
     var tiles_json = JSON.stringify(tiles);
@@ -391,7 +393,7 @@ $(function() {
       centerlng: map.getCenter().lng,
       link: document.URL
     };
-    // console.log(tileData);  
+    console.log(tileData);  
 
     // pass tile data to php
     $.ajax ({
@@ -970,8 +972,8 @@ $(function() {
     temp_key = t.data("key");
     temp_title = t.data("title");
 
-    group.old = group.new;
-    group.new = t.data('group');
+    group["old"] = group["new"];
+    group["new"] = t.data('group');
 
     // force when layer is from hashtag link data  
     force = ( force == null ? false : force);
@@ -1038,7 +1040,7 @@ $(function() {
     }
 
 
-    if ( !sublayer || group.new != group.old) {
+    if ( !sublayer || group["new"] != group["old"]) {
       // clear filter list on group change
       filter_list = [];
       // manage previously active layer when switching layer groups
