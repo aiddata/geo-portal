@@ -24,6 +24,7 @@ cp -r "$dir"/tmp "$out"/usr
 cp "$dir"/toolbox.json "$out"/usr
 cp "$dir"/nav.php "$out"/usr
 cp "$dir"/report.php "$out"/usr
+cp "$dir"/tracker.js "$out"/usr
 
 # build
 mkdir -p "$out"/dist
