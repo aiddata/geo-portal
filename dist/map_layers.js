@@ -410,12 +410,14 @@ $(function() {
 
         // $('#map_buttons').append('<div id="mb_report" class="map_button"><a href="'+link+'">Link to Report</a></div>');
         map.spin(false);
+        _gaq.push(['_trackEvent', 'Map', 'Print', 'Success'])
 
       },
       error: function (request, status, error) {
         console.log("Tiles Error");
         console.log(error);
         map.spin(false);
+        _gaq.push(['_trackEvent', 'Map', 'Print', 'Error'])
 
       }
     })
@@ -653,6 +655,8 @@ $(function() {
 
     window.marker.setLatLng(position);
     map.setView(position, 8);
+    _gaq.push(['_trackEvent', 'Map', 'Geocode'])
+
   };
 
   // --------------------------------------------------
@@ -1036,7 +1040,7 @@ $(function() {
       // t.parent().find('.layer_content').slideUp();
       layer_slider(t.parent(), "up");
 
-      // _gaq.push(['_trackEvent', 'Layers', 'Hide', $(this).data("key")]);
+      _gaq.push(['_trackEvent', 'Layers', 'Hide', $(this).data("title")]);
     }
 
 
@@ -1071,7 +1075,7 @@ $(function() {
         // t.parent().find('.layer_content').slideUp();
         layer_slider($(this).parent(), "up");
 
-        // _gaq.push(['_trackEvent', 'Layers', 'Hide', $(this).data("key")]);
+        _gaq.push(['_trackEvent', 'Layers', 'Hide', $(this).data("title")]);
       });
 
     }
@@ -1159,7 +1163,7 @@ $(function() {
       layer_slider(t.parent(), "down");
 
 
-      // _gaq.push(['_trackEvent', 'Layers', 'Show', t.data("key")]);
+      _gaq.push(['_trackEvent', 'Layers', 'Show', t.data("title")]);
 
     }
 
