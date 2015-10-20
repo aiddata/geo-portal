@@ -7,6 +7,11 @@
 # github repo
 out=$1
 
+if [[ $out == "" ]]; then
+	echo 'no output given'
+	exit 1
+fi
+
 # directory of this file (should be same as development files)
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 

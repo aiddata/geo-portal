@@ -605,7 +605,9 @@ $(function() {
         $("#search_lat").val(results[0].geometry.location.lat());
         $("#search_long").val(results[0].geometry.location.lng());
         console.log('sending result');
-        geocode_result(results[0].geometry.location);
+        // geocode_result(results[0].geometry.location);
+        geocode_result({'lat':$("#search_lat").val(), 'lng':$("#search_long").val()});
+
         console.log('done result');
       }
     });
@@ -614,11 +616,15 @@ $(function() {
   // update map for lat / long search
   $("#search_lat").on("change", function() {
     $("#search_address").val("");
-    geocode_result(new google.maps.LatLng($("#search_lat").val(), $("#search_long").val()));
+    // geocode_result(new google.maps.LatLng($("#search_lat").val(), $("#search_long").val()));
+    geocode_result({'lat':$("#search_lat").val(), 'lng':$("#search_long").val()});
   });
+
   $("#search_long").on("change", function() {
     $("#search_address").val("");
-    geocode_result(new google.maps.LatLng($("#search_lat").val(), $("#search_long").val()));
+    // geocode_result(new google.maps.LatLng($("#search_lat").val(), $("#search_long").val()));
+    geocode_result({'lat':$("#search_lat").val(), 'lng':$("#search_long").val()});
+
   });
 
   // clear search box
