@@ -81,7 +81,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="http://labs.aiddata.org/aiddata/imgs/ACDP logo transparent large.png"> </a>
+      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="http://da.aiddata.wm.edu/aiddata/imgs/ACDP logo transparent large.png"> </a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
