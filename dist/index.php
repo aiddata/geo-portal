@@ -29,6 +29,12 @@
     <link href="maps-style.css?nocache" media="screen, projection" rel="stylesheet" type="text/css" />
     <!-- <link href="maps-print.css?nocache" media="print"              rel="stylesheet" type="text/css" /> -->
 
+    <?php
+        if (file_exists("tracker.js")) {
+            echo '<script type="text/javascript" src="tracker.js"></script>';
+        }
+    ?>
+
   </head>
 
   <body>
@@ -62,12 +68,6 @@
       </div>
     </div>
 
-
-    <?php
-        if (file_exists("tracker.js")) {
-            echo '<script type="text/javascript" src="tracker.js"></script>';
-        }
-    ?>
 
     <script src="libs/es5-shim.min.js"></script>
     <script src="libs/es5-sham.min.js"></script>

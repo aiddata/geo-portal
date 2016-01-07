@@ -11,6 +11,8 @@
 
   #navbar{
     /*border-bottom: 2px solid black;*/
+    z-index: 10000
+
   }
 
   #navbar_aiddata_logo{
@@ -81,7 +83,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="http://da.aiddata.wm.edu/aiddata/imgs/ACDP logo transparent large.png"> </a>
+      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="imgs/aiddata_logo.png"> </a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">

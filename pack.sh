@@ -18,7 +18,6 @@ dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # general
 cp "$dir"/README.md "$out"/
-cp "$dir"/setup.md "$out"/
 cp "$dir"/pack.sh "$out"/
 cp "$dir"/build.sh "$out"/
 # cp "$dir"/.gitignore "$out"/

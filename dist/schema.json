@@ -9,12 +9,8 @@
       "type": "object",
       "displayProperty": "title",
       "additionalProperties": false,
-      "required": ["user","title"],
+      "required": ["title"],
       "properties": {
-        "user": {
-          "id": "user",
-          "type": "string"
-        },
         "title": {
           "id": "title",
           "type": "string"
@@ -91,8 +87,12 @@
               "type": "object",
               "displayProperty": "title",
               "additionalProperties": false,
-              "required":["title", "group", "type", "key"],
+              "required":["user", "title", "group", "type", "key"],
               "properties": {
+                "user": {
+                  "id": "user",
+                  "type": "string"
+                },
                 "title": {
                   "id": "title",
                   "type": "string"

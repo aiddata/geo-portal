@@ -1,22 +1,22 @@
 {
     "config": {
-        "user": "aiddata",
         "title": "Carto Template",
         "start_lat": -6.65,
         "start_zoom": 5,
         "start_lon": -57.77,
-        "background_image": "http:\/\/www.ccbbirds.org\/wp-content\/uploads\/2013\/01\/bird-migration-background.jpg",
+        "background_image": "",
         "background_color_red": 75,
         "background_color_blue": 75,
         "background_color_green": 75,
-        "logo": "http:\/\/www.ccbbirds.org\/wp-content\/uploads\/2012\/09\/ccb-logo-vertical-shadow.png",
-        "logo_link": "http:\/\/www.ccbbirds.org"
+        "logo": "",
+        "logo_link": ""
     },
     "categories": [
         {
             "title": "NDVI",
             "layers": [
                 {
+                    "user": "aiddata",
                     "title": "Hybrid NDVI",
                     "group": "ndvi",
                     "type": "sublayer",
@@ -168,6 +168,7 @@
             "title": "Bald Eagle Nests",
             "layers": [
                 {
+                    "user": "sgoodm",
                     "title": "Nests",
                     "group": "Bald Eagle Nests",
                     "type": "sublayer",
@@ -185,6 +186,7 @@
                     "maxzoom": 15
                 },
                 {
+                    "user": "sgoodm",
                     "title": "Nest Primary Buffers",
                     "group": "Bald Eagle Nests",
                     "type": "sublayer",
@@ -197,6 +199,7 @@
                     ]
                 },
                 {
+                    "user": "sgoodm",
                     "title": "Nest Secondary Buffers",
                     "group": "Bald Eagle Nests",
                     "type": "sublayer",
@@ -207,16 +210,6 @@
                     "filters": [
 
                     ]
-                },
-                {
-                    "title": "Change Over Time Animation (new)",
-                    "group": "Change-new",
-                    "type": "animation",
-                    "key": "d146d0a2-b91b-11e4-a018-0e0c41326911",
-                    "description": "Change in Bald Eagle Nests over time. Animations are a new feature and may have display problems in some browsers.",
-                    "filters": [
-
-                    ]
                 }
             ]
         },
@@ -224,6 +217,7 @@
             "title": "Bald Eagle Roosts",
             "layers": [
                 {
+                    "user": "sgoodm",
                     "title": "Roost Centroids",
                     "group": "Bald Eagle Roosts",
                     "type": "sublayer",
@@ -236,6 +230,7 @@
                     ]
                 },
                 {
+                    "user": "sgoodm",
                     "title": "Roost Polygons",
                     "group": "Bald Eagle Roosts",
                     "type": "sublayer",
@@ -246,48 +241,15 @@
                     "filters": [
 
                     ]
-                },
-                {
-                    "title": "Roost Primary Buffers",
-                    "group": "Bald Eagle Roosts",
-                    "type": "sublayer",
-                    "hashtag": "",
-                    "key": "32c1fefe-9b50-11e4-b578-0e9d821ea90d",
-                    "description": "The 330' \"primary buffer\" is where human activities are considered to be detrimental (e.g. residential, commercial, and industrial development, logging, use of toxic chemicals).",
-                    "link": "http:\/\/www.ccbbirds.org\/what-we-do\/research\/species-of-concern\/species-of-concern-projects\/national-eagle-roost-registry\/",
-                    "filters": [
-
-                    ]
-                },
-                {
-                    "title": "Roost Secondary Buffers",
-                    "group": "Bald Eagle Roosts",
-                    "type": "sublayer",
-                    "hashtag": "",
-                    "key": "cbb63094-9b50-11e4-9bcf-0e0c41326911",
-                    "description": "The 660' \"secondary buffer\" is where human activities are considered to impact the integrity of the \"primary buffer\" (e.g. construction of high-density developments, multi-story buildings, new roadways).",
-                    "link": "http:\/\/www.ccbbirds.org\/what-we-do\/research\/species-of-concern\/species-of-concern-projects\/national-eagle-roost-registry\/",
-                    "filters": [
-
-                    ]
                 }
             ]
         },
         {
             "title": "Waterbirds",
             "layers": [
-                {
-                    "title": "Waterbirds Animation (new)",
-                    "group": "Waterbirds Animation",
-                    "type": "animation",
-                    "key": "4f5db60c-b91e-11e4-8d61-0e018d66dc29",
-                    "description": "Animation of Colonial Waterbird data from 1976-2005.",
-                    "link": "http:\/\/www.ccbbirds.org\/what-we-do\/research\/species-of-concern\/species-of-concern-projects\/chesapeake-bay-heron-survey-2013\/",
-                    "filters": [
 
-                    ]
-                },
                 {
+                    "user": "sgoodm",
                     "title": "Colonial Waterbirds 2013",
                     "group": "a",
                     "type": "sublayer",
@@ -392,6 +354,7 @@
                     ]
                 },
                 {
+                    "user": "sgoodm",
                     "title": "Chesapeake Bay Herons 2013",
                     "group": "a",
                     "type": "sublayer",
@@ -402,114 +365,6 @@
                     "link": "http:\/\/www.ccbbirds.org\/what-we-do\/research\/species-of-concern\/species-of-concern-projects\/chesapeake-bay-heron-survey-2013\/",
                     "filters": [
 
-                    ]
-                },
-                {
-                    "title": "Colonial Waterbirds 2008",
-                    "group": "a",
-                    "type": "sublayer",
-                    "hashtag": "waterbirds2008",
-                    "key": "0638a146-7f1a-11e4-9584-0e9d821ea90d",
-                    "key_alt": "bb270912-7e08-11e3-9ddf-7789a429ada9",
-                    "description": "A systematic aerial and ground survey of colonial waterbirds in coastal Virginia during the 2008 breeding season. More than 800 surveys were conducted of 446 colonies and 24 species.",
-                    "link": "http:\/\/www.ccbbirds.org\/what-we-do\/research\/species-of-concern\/species-of-concern-projects\/va-colonial-waterbird-survey\/",
-                    "filters": [
-                        {
-                            "sql": "common_nam=&#39;Black Skimmer&#39;",
-                            "title": "Black Skimmer"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Black-crowned Night Heron&#39;",
-                            "title": "Black-crowned Night-Heron"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Brown Pelican&#39;",
-                            "title": "Brown Pelican"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Caspian Tern&#39;",
-                            "title": "Caspian Tern"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Cattle Egret&#39;",
-                            "title": "Cattle Egret"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Common Tern&#39;",
-                            "title": "Common Tern"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Double-crested Cormorant&#39;",
-                            "title": "Double-crested Cormorant"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Forster''s Tern&#39;",
-                            "title": "Forster's Tern"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Glossy Ibis&#39;",
-                            "title": "Glossy Ibis"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Great Black-backed Gull&#39;",
-                            "title": "Great Black-backed Gull"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Great Blue Heron&#39;",
-                            "title": "Great Blue Heron"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Great Egret&#39;",
-                            "title": "Great Egret"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Green Heron&#39;",
-                            "title": "Green Heron"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Gull-billed Tern&#39;",
-                            "title": "Gull-billed Tern"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Herring Gull&#39;",
-                            "title": "Herring Gull"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Laughing Gull&#39;",
-                            "title": "Laughing Gull"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Least Tern&#39;",
-                            "title": "Least Tern"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Little Blue Heron&#39;",
-                            "title": "Little Blue Heron"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Mixed Herons&#39;",
-                            "title": "Mixed Herons"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Royal Tern&#39;",
-                            "title": "Royal Tern"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Snowy Egret&#39;",
-                            "title": "Snowy Egret"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Tricolored Heron&#39;",
-                            "title": "Tricolored Heron"
-                        },
-                        {
-                            "sql": "common_nam=&#39;White Ibis&#39;",
-                            "title": "White Ibis"
-                        },
-                        {
-                            "sql": "common_nam=&#39;Yellow-crowned Night Heron&#39;",
-                            "title": "Yellow-crowned Night-Heron"
-                        }
                     ]
                 }
             ]

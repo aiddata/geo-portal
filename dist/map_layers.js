@@ -12,6 +12,7 @@ $(function() {
   var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
   var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
 
+
   // --------------------------------------------------
   // var init
   
@@ -23,7 +24,7 @@ $(function() {
 
   var temp_key, temp_title;
 
-  var CARTO_USER, mc, mz;
+  var mc, mz;
 
   readJSON("toolbox.json", function (request, status, error){
     // var json = request
@@ -68,11 +69,7 @@ $(function() {
     //   $('#identity img').attr('src', request.config.logo);
     // }
 
-    // carto user account id
-    CARTO_USER = request.config.user;
-    sql = new cartodb.SQL({
-      user: CARTO_USER
-    });
+
     // map center [lat, lng]
     mc = [request.config.start_lat, request.config.start_lon];
     // map zoom level
@@ -483,6 +480,7 @@ $(function() {
     validate.cat_html += '<div class="layer">';
 
     validate.cat_html += '<div class="layer_toggle"'
+    validate.cat_html += 'data-user="'+layer.user+'"';
     validate.cat_html += 'data-hashtag="'+layer.hashtag+'"';
     validate.cat_html += 'data-key="'+layer.key+'"';
     validate.cat_html += 'data-group="'+layer.group+'"';
@@ -833,7 +831,7 @@ $(function() {
     $("#toolbox").data("collapsed", true);
   };
 
- function updateJenksBins(column_name, how_many_bins, table_name, sublayer) {
+ function updateJenksBins(column_name, how_many_bins, table_name, sublayer, sql) {
     map.spin(true)
 
     sql.execute('select CDB_JenksBins(array_agg(' + column_name + '::numeric), ' + how_many_bins + ') from ' + table_name + ' where ' + column_name + ' is not null')
@@ -897,7 +895,10 @@ $(function() {
     sublayer = active_layers[key].getSubLayer(0);
     tn = sublayer.get('layer_name');
 
-    updateJenksBins(field, nbins, tn, sublayer);
+    var tmp_sql = new cartodb.SQL({
+      user: $(t).data('user')
+    });
+    updateJenksBins(field, nbins, tn, sublayer, tmp_sql);
 
   }
 
@@ -1092,7 +1093,7 @@ $(function() {
     $(".cartodb-popup").remove();
     $(".cartodb-timeslider").remove();
 
-    var layerUrl = "http://"+CARTO_USER+".cartodb.com/api/v2/viz/" + t.data("key") + "/viz.json";
+    var layerUrl = "http://"+t.data("user")+".cartodb.com/api/v2/viz/" + t.data("key") + "/viz.json";
 
     // check link before loading
     validate.url = 0;
