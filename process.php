@@ -34,8 +34,9 @@ switch ($_POST['call']) {
 
 	// simple password check for json editor
 	case 'pass':
+		$pwd = "toolboxpass";
 		$out = false;
-		if ($_POST['pass'] == "toolboxpass") {
+		if ($_POST['pass'] == $pwd) {
 			$out = true;
 		}
 		echo json_encode($out);
@@ -49,7 +50,7 @@ switch ($_POST['call']) {
 			$json = json_encode(json_decode($_POST["json"]), JSON_PRETTY_PRINT); 
 		}
 
-		$file = $root_dir."/toolbox.json";
+		$file = $root_dir."/usr/toolbox.json";
 		file_put_contents($file, $json);
 		echo $json;
 		break;
@@ -121,7 +122,7 @@ switch ($_POST['call']) {
 
 
 		// convert markdownextra to html
-		require_once $root_dir . '/libs/Michelf/MarkdownExtra.inc.php';
+		require_once $root_dir . '/libs/php/Michelf/MarkdownExtra.inc.php';
 
 		// use \Michelf\MarkdownExtra;
 		// $parser = new MarkdownExtra();
@@ -132,7 +133,7 @@ switch ($_POST['call']) {
 		// file_put_contents($TEMP_DIR.'/'.$TEMP_URL.'.html', $html);
 
 		// convert html to pdf
-		include $root_dir . '/libs/mpdf/mpdf.php';
+		include $root_dir . '/libs/php/mpdf/mpdf.php';
 		$mpdf = new mPDF();
 		$mpdf->WriteHTML($html);
 		$mpdf->Output($TEMP_DIR.'/'.$TEMP_URL.'.pdf', "F");

@@ -83,7 +83,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="imgs/aiddata_logo.png"> </a>
+      <a id="navbar_aiddata_logo" class="navbar-brand" href="http://aiddata.org/"><img src="usr/imgs/aiddata_logo.png"> </a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -92,76 +92,57 @@
 
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help Map <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
 
-              <!-- <li class="dropdown-header">Get Data</li> -->
-              <li><a href="http://www.tomnod.com/">Damage (Tomnod)</a></li>
-              <li><a href=" http://kathmandulivinglabs.org/blog/earthquake-relief-in-nepal-how-can-maps-help/">Infrastructure (OSM)</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
 
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contribute <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
 
-              <!-- <li class="dropdown-header">Internal</li> -->
-              <li><a href="http://www.savethechildren.org/site/apps/nlnet/content2.aspx?c=8rKLIXMGIpI4E&b=9241341&ct=14620557&notoc=1">Save the Children</a></li>
-              <li><a href="mailto:drunfola@aiddata.org">Send Us Data</a></li>
+              <li class="dropdown-header">Header</li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
 
-              <!-- <li class="divider"></li> -->
+              <li class="divider"></li>
 
 
-              <!-- <li class="dropdown-header">External</li> -->
-              <!-- <li><a href="/aiddata/CCB/test">Center for Conservation Biology</a></li> -->
+              <li class="dropdown-header">Header</li>
+              <li><a href="#">Link</a></li>
 
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Get Data <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
 
-              <!-- <li class="dropdown-header">Media</li> -->
-              <li><a href="http://www.opencitiesproject.org/cities/kathmandu/">Open Cities Project</a></li>
-              <li><a href="http://aiddata.org/geocoded-datasets">AidData</a></li>
-              <li><a href="http://wiki.openstreetmap.org/wiki/Downloading_data">OSM</a></li>
-              <li><a href="https://docs.google.com/spreadsheets/d/1dajjXd1eVs8VMetD7qTLUjSSZ1-NvsEteSCVlKqIRm4/edit?usp=sharing">News Reports</a></li>
-          <!--     <li class="divider"></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+               <li class="divider"></li>
 
-              <li class="dropdown-header">Research</li>
-              <li><a href="#">Evaluating the Impact of Open Aid Data</a></li>
-              <li class="divider"></li>
-
-              <li class="dropdown-header">Outreach</li>
-              <li><a href="#">New Data Collection Methods</a></li> -->
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
 
           </ul>
         </li>
 
-        <li class=""><a href="https://google.org/personfinder/global/home.html">Google Person Finder</a></li>
+        <li class=""><a href="#">Link</a></li>
 
-   <!--      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Alerts <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Current Alerts</a></li>
-              <li><a href="#">Current Warnings</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Previous Alerts</a></li>
-              <li><a href="#">Previous Warnings</a></li>
-              <li><a href="#">Overview of Previous Events</a></li>
-              <li class="divider"></li>
-              <li><a href="#">How Alerts are Generated</a></li>
-              <li><a href="#">Get Raw Data</a></li>
-          </ul>
-        </li> -->
+
 
       </ul>
+      
     <!--   <ul class="nav navbar-nav navbar-right">
         <li><a href="#">About</a></li>
         <li id="temp_reset"><a href="#">Contact</a></li>
       </ul> -->
+
     </div><!--/.nav-collapse -->
   </div>
 </div> <!-- /#navbar -->
