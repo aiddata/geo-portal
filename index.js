@@ -1361,6 +1361,7 @@ $(function() {
     function readJSON(file, callback) {
         $.ajax({
             type: "GET",
+            cache: false,
             dataType: "json",
             url: file,
             async: false,
