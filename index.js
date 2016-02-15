@@ -31,7 +31,7 @@ $(function() {
         ga = 0;
     }
 
-    readJSON("usr/toolbox.json", function (request, status, error){
+    readJSON("user/toolbox.json", function (request, status, error){
         // var json = request
         if (error) {
             console.log(status);
@@ -552,7 +552,7 @@ $(function() {
 
 
     // // build toolbox html
-    // readJSON("usr/toolbox.json", function (request, status, error){
+    // readJSON("user/toolbox.json", function (request, status, error){
     //   // var json = request
     //   if (error) {
     //     console.log(status);
