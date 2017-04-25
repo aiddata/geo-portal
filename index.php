@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        
+
         <?php
             header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
             header('Pragma: no-cache'); // HTTP 1.0.
@@ -14,7 +14,7 @@
 
         <link href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css" rel="stylesheet" />
         <!--[if lte IE 8]><link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.ie.css" /><![endif]-->
-        
+
         <link href="libs/css/font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet" />
 
         <link href="libs/javascript/Leaflet.draw-master/dist/leaflet.draw.css" rel="stylesheet" />
@@ -30,8 +30,8 @@
         <!-- <link href="maps-print.css?nocache" media="print"              rel="stylesheet" type="text/css" /> -->
 
         <?php
-            if (file_exists("usr/tracker.js")) {
-                echo '<script type="text/javascript" src="usr/tracker.js"></script>';
+            if (file_exists("user/tracker.js")) {
+                echo '<script type="text/javascript" src="user/tracker.js"></script>';
             }
         ?>
 
@@ -39,15 +39,15 @@
 
     <body>
 
-        <?php include("usr/nav.php"); ?>  
+        <?php include("user/nav.php"); ?>
 
         <div id="toolbox">
-            <span id="toolbox_toggle" class="fa fa-chevron-left" title="toggle toolbox display"></span>      
+            <span id="toolbox_toggle" class="fa fa-chevron-left" title="toggle toolbox display"></span>
             <div class="title">Layers</div>
             <div id="layers" class="body"></div>
         </div>
 
-        
+
         <div id="map"></div>
 
         <div id="legend_tabs">
@@ -76,10 +76,10 @@
         <script src="libs/javascript/underscoremin.js"></script>
 
         <script src="libs/javascript/URI.js"></script>
-      
+
         <script src="libs/javascript/leaflet.spin.js"></script>
         <script src="libs/javascript/spin.min.js"></script>
-        
+
         <!-- // <script src="libs/javascript/leaflet.measure/leaflet.measure.js"></script> -->
         <script src="libs/javascript/leaflet-measure-master/dist/leaflet-measure.min.js"></script>
 
