@@ -1,7 +1,7 @@
 $(function() {
 
 
-    // --------------------------------------------------  
+    // --------------------------------------------------
     // browser check
 
     var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
@@ -15,11 +15,11 @@ $(function() {
 
     // --------------------------------------------------
     // variable initialization
-    
-    var active_layers, afterPrint, beforePrint, close_toolbox, control, 
-        do_open_hashtag, drawnItems, filter_list, group, hash_change, 
-        init_map, layer_colors, layer_list, map, map_defaultzoommax, mediaQueryList, 
-        open_hashtag, open_toolbox, refresh_layers, sql, toggle_filter, 
+
+    var active_layers, afterPrint, beforePrint, close_toolbox, control,
+        do_open_hashtag, drawnItems, filter_list, group, hash_change,
+        init_map, layer_colors, layer_list, map, map_defaultzoommax, mediaQueryList,
+        open_hashtag, open_toolbox, refresh_layers, sql, toggle_filter,
         toggle_layer, validate, zoom_limit;
 
     var temp_key, temp_title,
@@ -43,20 +43,20 @@ $(function() {
         toolbox_data = request
 
         // custom setup
-        // move all this to a json file 
+        // move all this to a json file
         // add title, icon, page header info (background image, link names/hrefs, etc.), report text, etc.
 
         $('#title-link').html( ( toolbox_data.config ? toolbox_data.config.title : "Mapping Portal") );
 
         if (toolbox_data.config.pagename) {
             document.title = toolbox_data.config.pagename;
-        } else if (toolbox_data.config.title) { 
+        } else if (toolbox_data.config.title) {
             document.title = toolbox_data.config.title;
         } else {
             document.title = "Mapping Portal"
         }
 
-        
+
         // if (toolbox_data.config.logo && toolbox_data.config.logo_link) {
         //   $('#identity').attr('href', toolbox_data.config.logo_link);
         //   $('#identity img').attr('src', toolbox_data.config.logo);
@@ -77,7 +77,7 @@ $(function() {
     hash_change = 1;
     layer_colors = {};
     map = void 0;
- 
+
     validate = {};
     zoom_limit = {};
 
@@ -85,21 +85,21 @@ $(function() {
     // initialize map
 
     var baseMaps = {
-        "Street Map (OSM)":           L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { 
-                                                                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>'
-                                                                    }),
-        "Aerial Imagery (MapQuest)":  L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg', {
-                                                                        attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
-                                                                        subdomains: '1234'
-                                                                    }),
-        "Street Map (MapQuest)":      L.tileLayer('http://oatile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg', {
-                                                                        attribution: 'Tiles Courtesy of <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Portions Courtesy NASA/JPL-Caltech and U.S. Depart. of Agriculture, Farm Service Agency',
-                                                                        subdomains: '1234'
-                                                                    }),
-        "Grayscale (Stamen)":         L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-                                                                        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-                                                                    })
+        "Street Map (OSM)":             L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap contributors</a>'
+                                        }),
+        "World Imagery (ESRI)":         L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                                            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+                                        }),
+        "NatGeo World Map (ESRI)":      L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+                                            attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+                                            maxZoom: 16
+                                        }),
+        "Grayscale (Stamen)":           L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
+                                            attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+                                        })
     };
+
 
     var overlayMaps = {};
 
@@ -107,10 +107,10 @@ $(function() {
         // measureControl: true, // measure distance tool
         center: mc,
         zoom: mz,
-        layers: [baseMaps["Street Map (MapQuest)"]],
+        layers: [baseMaps["Street Map (OSM)"]],
         attributionControl: false
     });
-    
+
     map.options.minZoom = 3;
     map_defaultzoommax = 18;
 
@@ -152,7 +152,7 @@ $(function() {
     // --------------------------------------------------
     // map buttons
 
-    var mb_html = 
+    var mb_html =
     mb_html += '<div id="map_buttons">';
     mb_html += '<div id="mb_tools" class="map_button">Toggle Draw Tools</div>';
     mb_html += '<div id="mb_link" class="map_button">Generate Link</div>';
@@ -168,8 +168,8 @@ $(function() {
         var url_search = {
                             layer: layer_list,
                             filters: filter_list,
-                            zoom: map.getZoom(), 
-                            lat: map.getCenter().lat, 
+                            zoom: map.getZoom(),
+                            lat: map.getCenter().lat,
                             lng: map.getCenter().lng
         }
 
@@ -196,14 +196,14 @@ $(function() {
         var keys = _.keys(baseMaps);
         for ( var i=0, ix=keys.length; i<ix; i++ ) {
             if ( map.hasLayer(baseMaps[ keys[i] ]) ) {
-                url_search.base = keys[i];      
+                url_search.base = keys[i];
             }
         }
 
         var url_new = URI(document.URL).addSearch(url_search)
         hash_change = 0;
         window.location.hash = url_new.query()
-        
+
     })
 
     $('#mb_print').on('click', function () {
@@ -239,7 +239,7 @@ $(function() {
             x: {
                 min:null,
                 max:null
-            }, 
+            },
             y: {
                 min:null,
                 max:null
@@ -257,14 +257,14 @@ $(function() {
         // go through all layers, and collect a list of objects
         $('.leaflet-layer').each ( function () {
 
-            // var tile_layer = false; 
+            // var tile_layer = false;
             var tmp_tiles = [];
             var t0 = 1;
 
             // $(this).find('.leaflet-tile-container').each( function () {
-                
+
                 // if ( $(this).children().length > 0 && tile_layer == false ) {
-                    
+
                     // tile_layer = true;
 
                     $(this).find('.leaflet-tile-loaded').each( function () {
@@ -369,20 +369,20 @@ $(function() {
         // })
 
         // var tileData = { call: "tiles", width: size.x, height: size.y, tiles: tiles_json };
-        var tileData = { 
-            call: "tiles", 
-            width: te.diff.x * 256, 
-            height: te.diff.y * 256, 
-            tiles: tiles_json, 
+        var tileData = {
+            call: "tiles",
+            width: te.diff.x * 256,
+            height: te.diff.y * 256,
+            tiles: tiles_json,
             legend: legend_info,
             // scale: scale_info,
             active: active_legend_name,
             layers: layer_list,
-            centerlat: map.getCenter().lat, 
+            centerlat: map.getCenter().lat,
             centerlng: map.getCenter().lng,
             link: document.URL
         };
-        console.log(tileData);  
+        console.log(tileData);
 
         // pass tile data to php
         $.ajax ({
@@ -410,7 +410,7 @@ $(function() {
 
             }
         })
-        
+
         // map.spin(false);
 
     })
@@ -498,7 +498,7 @@ $(function() {
 
 
         if (layer.centerlon && layer.centerlat && layer.zoom) {
-        
+
             validate.cat_html += '<div class="layer_extent">Zoom to Extents</div>';
 
         }
@@ -523,7 +523,7 @@ $(function() {
     }
 
     validate.fields = function(fields) {
-        
+
         validate.cat_html += '<select class="field_select">';
 
         for (var k=0, kx=fields.length; k<kx; k++) {
@@ -608,7 +608,7 @@ $(function() {
                 console.log('done result');
             }
         });
-    }); 
+    });
 
     // update map for lat / long search
     $("#search_lat").on("change", function() {
@@ -649,7 +649,7 @@ $(function() {
                 $("#search_lat").val(window.marker.getLatLng().lat);
                 $("#search_long").val(window.marker.getLatLng().lng);
                 $("#search_address").val("");
-                
+
             });
 
             map.addLayer(window.marker);
@@ -766,7 +766,7 @@ $(function() {
             hide = true;
             $('#'+$(this).attr('id').replace('tab_', '')).hide();
         }
-            
+
         $('.legend_tab').each(function(){
             $(this).removeClass('legend_tab_active');
         });
@@ -779,10 +779,10 @@ $(function() {
     $('#map').on('DOMNodeInserted', function(e) {
         if ( $(e.target).is('.cartodb-legend-stack') && temp_key && $(e.target)[0].style.display != 'none') {
             // console.log($(e.target)[0].style.display)
-            $(e.target)[0].id = 'legend_'+temp_key 
-            
+            $(e.target)[0].id = 'legend_'+temp_key
+
             $('#legend_'+temp_key ).data('layer', temp_title);
-            
+
             $('#legend_tabs').append('<div id="legend_tab_'+ temp_key +'" class="legend_tab" title="'+ temp_title +'">'+ temp_title +'</div>')
             $('#legend_tab_'+ temp_key).click();
 
@@ -830,7 +830,7 @@ $(function() {
         $("#toolbox").data("collapsed", true);
     };
 
-    // calculate jenks breaks for specified table column and update cartocss for visualization 
+    // calculate jenks breaks for specified table column and update cartocss for visualization
     function updateJenksBins(column_name, how_many_bins, table_name, sublayer, sql) {
         map.spin(true)
 
@@ -919,7 +919,7 @@ $(function() {
         tn = sublayer.get('layer_name');
 
         filter = ""
-        
+
         var layer_name = t.data('title');
         var sub_filter_list = [];
         for (var i=0, ix=filter_list.length; i<ix; i++) {
@@ -988,7 +988,7 @@ $(function() {
         group["old"] = group["new"];
         group["new"] = t.data('group');
 
-        // force when layer is from hashtag link data  
+        // force when layer is from hashtag link data
         force = ( force == null ? false : force);
 
         // true when opening (from hash or toolbox), false when closing
@@ -1030,7 +1030,7 @@ $(function() {
         // $('.cartodb-legend-stack').each(function(){
         //   $(this).hide();
         // });
-        
+
 
         // manage removing layer from current group
         if ( sublayer && t.hasClass("active_layer") ) {
@@ -1112,7 +1112,7 @@ $(function() {
                     validate.url = 1;
                 } else {
                     console.log(result)
-                    console.log("invalid url: " + layerUrl);    
+                    console.log("invalid url: " + layerUrl);
                 }
 
             },
@@ -1121,7 +1121,7 @@ $(function() {
                 // console.log(result);
             }
         })
-        
+
         zoom_limit[t.data("key")] = map_defaultzoommax;
 
         // manage loading a layer
@@ -1156,7 +1156,7 @@ $(function() {
                 t.parent().find(".field_select").change();
 
 
-                // callback is for managing filters from hashtag links only 
+                // callback is for managing filters from hashtag links only
                 if (callback) {
                     callback();
                 }
@@ -1200,7 +1200,7 @@ $(function() {
         });
     }
 
-    // refresh map by searching toolbox for 
+    // refresh map by searching toolbox for
     // loaded layer and invalidating
     function refresh_layers() {
         $(".layer_toggle").each(function() {
@@ -1229,7 +1229,7 @@ $(function() {
             var keys = _.keys(baseMaps);
             for ( var i=0, ix=keys.length; i<ix; i++ ) {
                 if ( map.hasLayer(baseMaps[ keys[i] ]) ) {
-                    map.removeLayer( baseMaps[ keys[i] ] );      
+                    map.removeLayer( baseMaps[ keys[i] ] );
                 }
             }
             map.addLayer( baseMaps[url_query.base] )
@@ -1247,11 +1247,11 @@ $(function() {
         if (url_query.zoom && url_query.lat && url_query.lng) {
             map.setView([url_query.lat, url_query.lng], url_query.zoom);
         }
-        
+
         $(".layer_toggle").each(function(index) {
-            
+
             if ( h.indexOf( $(this).data('hashtag') ) > -1 || h.indexOf( $(this).data('title') ) > -1 ) {
-            
+
                 // autozoom to extents for hashtag layers (when extent data is available - single layer links only. ie: old hashtag link)
                 if ( h.length == 1 && h.indexOf( $(this).data('hashtag') ) > -1 && $(this).data('centerlon') && $(this).data('centerlat') && $(this).data('zoom') ) {
                     map.setView([$(this).data('centerlat'), $(this).data('centerlon')], $(this).data('zoom'));
@@ -1266,7 +1266,7 @@ $(function() {
 
                 setTimeout( function() {
                     toggle_layer($layer, true, function(){
-                        
+
                         if ( active_layers[$layer.data("key")] && url_query.filters && url_query.filters.length > 0 ) {
 
                             var layer_name =  $layer.parent().find('.layer_toggle').data('title');
@@ -1348,7 +1348,7 @@ $(function() {
     };
 
     // --------------------------------------------------
-    // general functions  
+    // general functions
 
     // round number x to y decimal palces
     function roundxy(x,y) {
@@ -1357,7 +1357,7 @@ $(function() {
         return Math.floor(x*pow)/(pow);
     }
 
-    // read json file 
+    // read json file
     function readJSON(file, callback) {
         $.ajax({
             type: "GET",
@@ -1367,11 +1367,11 @@ $(function() {
             async: false,
             success: function (request) {
                 callback(request, "good", 0);
-            },    
+            },
             error: function (request, status, error) {
                 callback(request, status, error);
             }
-        }) 
+        })
     };
 
     // --------------------------------------------------
